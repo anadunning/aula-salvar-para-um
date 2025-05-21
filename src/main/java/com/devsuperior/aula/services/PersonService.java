@@ -19,14 +19,11 @@ public class PersonService {
 
     public PersonDepartmentDTO insert(PersonDepartmentDTO dto) {
         Person entity = new Person();
-
         entity.setName(dto.getName());
         entity.setSalary(dto.getSalary());
 
 //        Department dept = new Department();
 //        dept.setId(dto.getDepartment().getId());
-
-        Department dept = departmentRepository.getReferenceById(dto.getDepartment().getId());
 
         entity.setDepartment(dept);
         entity = repository.save(entity);
